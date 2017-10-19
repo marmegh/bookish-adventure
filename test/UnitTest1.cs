@@ -46,5 +46,21 @@ namespace test
             int h2c = helmet.health;
             Assert.Equal(20, h2b - h2c);
         }
+        [Fact]
+        public void TestSithAttack()
+        {
+            int h1a = helmet.health;
+            int s1a = helmet.strength;
+            helmet.meditate();
+            int s1b = helmet.strength;
+            Assert.Equal(s1b - s1a, 5);
+            int h2a = obiwan.health;
+            helmet.fight(obiwan);
+            int h2b = obiwan.health;
+            Assert.Equal(20, h2a - h2b);
+            helmet.duel(obiwan);
+            int h2c = obiwan.health;
+            Assert.Equal(20, h2b - h2c);
+        }
     }
 }
