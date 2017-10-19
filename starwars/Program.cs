@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace starwars
 {
-    class Program
+    public class Program
     {
         public static Random rand = new Random();
         public static List<Humanoid> player(string input){
