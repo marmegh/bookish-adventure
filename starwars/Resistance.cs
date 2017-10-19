@@ -1,4 +1,4 @@
-
+using System;
 using System.Collections.Generic;
 
 namespace starwars
@@ -6,7 +6,7 @@ namespace starwars
     public class Resistance : Humanoid
     {
         public static Random rand = new Random();
-        int count++;
+        int count = 0;
         public Resistance(string name = "Oook") : base(name)
         {
             count++;
@@ -78,7 +78,7 @@ namespace starwars
             this.strength = 25;
             this.intelligence = 30;
             this.stealth = 50;
-            this.agility = 20
+            this.agility = 20;
         }
         public void SneakAttack(Humanoid person)
         {
