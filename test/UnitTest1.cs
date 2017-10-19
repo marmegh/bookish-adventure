@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Xunit;
 using starwars;
 
@@ -61,6 +62,49 @@ namespace test
             helmet.duel(obiwan);
             int h2c = obiwan.health;
             Assert.Equal(20, h2b - h2c);
+        }
+
+        [Theory]
+        [InlineData(2)]
+        [InlineData(4)]
+        [InlineData(8)]
+        [InlineData(10)]
+        [InlineData(17)]
+        [InlineData(20)]
+        public void TestEnemyGen2To20(int turn)
+        {
+            List<starwars.Humanoid> enemyList = Program.enemyGen(turn);
+            if(turn < 2)
+            {
+                Assert.Equal(enemyList.Count, 1);
+                Assert.Equal(enemyList[0].GetType(), typeof(StormTrooper));
+            }
+            else if(turn < 10)
+            {
+                Assert.Equal(enemyList.Count, 2);
+                Assert.Equal(enemyList[0].GetType(), typeof(StormTrooper));
+                Assert.Equal(enemyList[1].GetType(), typeof(StormTrooper));
+            }
+            else if(turn == 10)
+            {
+                Assert.Equal(enemyList.Count, 2);
+                Assert.Equal(enemyList[0].GetType(), typeof(BountyHunter));
+                Assert.Equal(enemyList[1].GetType(), typeof(StormTrooper));  
+            }
+            else if (turn < 20) 
+            {
+                Assert.Equal(enemyList.Count, 3);
+                Assert.Equal(enemyList[0].GetType(), typeof(BountyHunter));
+                Assert.Equal(enemyList[1].GetType(), typeof(StormTrooper));
+                Assert.Equal(enemyList[2].GetType(), typeof(StormTrooper));                
+            }
+            else if(turn == 20)
+            {
+                Assert.Equal(enemyList.Count, 3);
+                Assert.Equal(enemyList[0].GetType(), typeof(Sith));
+                Assert.Equal(enemyList[1].GetType(), typeof(StormTrooper));
+                Assert.Equal(enemyList[2].GetType(), typeof(StormTrooper));
+            }
         }
     }
 }
