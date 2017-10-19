@@ -29,5 +29,22 @@ namespace test
             Assert.Equal(obiwan.stealth, 0);
             Assert.Equal(obiwan.agility, 0);
         }
+
+        [Fact]
+        public void TestJediAttack()
+        {
+            int h1a = obiwan.health;
+            int s1a = obiwan.strength;
+            obiwan.meditate();
+            int s1b = obiwan.strength;
+            Assert.Equal(s1b - s1a, 5);
+            int h2a = helmet.health;
+            obiwan.fight(helmet);
+            int h2b = helmet.health;
+            Assert.Equal(20, h2a - h2b);
+            obiwan.duel(helmet);
+            int h2c = helmet.health;
+            Assert.Equal(20, h2b - h2c);
+        }
     }
 }
