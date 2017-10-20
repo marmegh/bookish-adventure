@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace starwars{
-    class Program{
+namespace starwars
+{
+    public class Program
+    {
         public static Random rand = new Random();
         public static List<Humanoid> player(string input){
             List<Humanoid> players = new List<Humanoid>();
