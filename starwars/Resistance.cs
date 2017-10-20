@@ -11,6 +11,14 @@ namespace starwars
         {
             count++;
         }
+        public void regroup(){
+            health += 10;
+            strength += 2;
+            intelligence += 2;
+            agility += 1;
+            stealth += 1;
+            
+        }
     }
 
     public class Jedi : Resistance
